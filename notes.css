@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+/* ##################################### SETUP ##################################### */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html {
+    box-sizing: border-box;     /* box sizing for all elements in the document */
+    font-family: sans-serif;
+    font-size: 100%;            /* Maintain the browser's default size */
+    color: #444;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+#root {
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+body {
+    color: black;           /* color is inherited */
+}
+
+/* ##################################### TEXT ##################################### */
+
+/*
+rem:    root em, always relative to the size of the root (html) element (usually 16px)
+em:     based on the font size of the current element 
+%:      inherited from the root element
+*/
+
+h1 {
+    font-family: sans-serif;    /* Add more than one for failover */
+    font-size: 1.5em;           /* Use em, rem (root em), or % */
+}
+
+p {
+    line-height: 2em;           /* height from baseline to baseline */
+    text-align: center;         /* left, center, right, etc */
+    text-decoration: underline; /* pick none for links */
+    text-transform: capitalize;
+}
+
+p, aside, ul {
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+}
+
+/* child selector */
+p > em {
+    font-weight: bold;
+}
+
+/* next sibling */
+h1 + p {
+    font-style: italic;
+}
+
+ul {
+    list-style-type: none;
+    list-style-position: outside;   /* pull the bullet inside the content area */
+}
+
+/* ##################################### COLORS / BACKGROUNDS ##################################### */
+
+.background {
+    color: silver;                /* this is the foreground color -- the text and the border */
+    background-color: gray;
+    background-clip: padding-box;   /* how far out do you want the background color to extend? */
+}
+
+/* ########## PSEUDO-CLASS ########### 
+    Elements in a certain state belong to the same class that is not in the markup, but the browser tracks it
+*/
+
+
+/* LINK */
+
+a:link {
+    color: blue;
+}
+a:visited {
+    color: lightblue;
+}
+a:focus {
+    background-color: lightyellow;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    color: red;
+}
+
+/* ########## PSEUDO-CLASS ########### 
+    Like inserting a fictional element into the doc structure for styling
+*/
+
+::before, ::after {
+    content: " Thank you.";
+    color: red;
+}
+
+/* ########## ATTRIBUTE SELECTORS ########### */
+
+[type="text"] {
+    display: inline-block;
+}
+
+/* ########## BACKGROUND IMAGES ########### */
+
+body {
+    background-image: url(images/example.png);
+    background-origin: content-box;
+    background-attachment: scroll;      /* image is attached to a specific place in the DOM */
+}
+
+/* ##################################### BOX MODEL ##################################### */
+
+p {
+    background: #444;
+    width: 500 px;
+    height: 150px;
+    padding: 20px;
+    border: 5px solid gray;
+    margin: 20px;                       /* optional amount of space that you can add to the outside of the border */
+    border-style: double;               /* overrides the shorthand above */
+    border-width: thick;                /* or px, overrides the shorthand above */
+    border-radius: 2em;
+}
+
+nav {
+    overflow: scroll;
+}
+
+/* ######### MARGINS ###########
+
+margin: 1em auto;   setting to 'auto' on the left and right centers the element 
+collapsing margins: top and bottom margins of neighboring elements overlap, and the largest value is used.
+inline elements:    top and bottom margin does not matter on inline elements
+negative margin:    moves content, padding, and border in opposite direction.
+*/
+
+/* ##################################### FLOATING AND POSITIONING ##################################### */
+
+img {
+    float: right;           /* floats image to right of screen, text all around it */
+    margin: 1em;
+}
+
+/* FLOAT inline text element */
+span.inel {
+    float: right;
+    margin: 1em;
+    width: 200px;           /* always provide a width for floated text elements */
+}
+
+p {                         /* apply the clear property to the elment that you want to start below the floated element */
+    clear: left;            /* clears to the left, both clears when there are multiple floated elements */
+}
