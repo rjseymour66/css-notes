@@ -167,3 +167,91 @@ span.inel {
 p {                         /* apply the clear property to the elment that you want to start below the floated element */
     clear: left;            /* clears to the left, both clears when there are multiple floated elements */
 }
+
+img {
+    position: absolute;     /* positioned in relation to the viewport or container element (or html if no direct ancestor) */
+    top: 2em;
+    left: 3em;
+}
+
+/* Stacking with the z-index. The highest number displays at the top of the stack */
+#A {
+    z-index: 100;
+}
+#B {
+    z-index: 32;
+}
+#C {
+    z-index: 1;
+}
+
+/* ############################################### FLEXBOX ############################################### */
+
+/*
+Container:
+    display
+    flex-flow
+        flex-direction
+        flex-wrap
+    justify-content
+    align-items
+    align-content
+
+Flex item:
+    align-self
+    flex
+        flex-grow
+        flex-shrink
+        flex-basis
+    order
+*/
+
+#container {
+    display: flex;      
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;            /* flex-flow is flex-direction + flex-wrap */
+    justify-content: flex-start;    /* start of the flex container */
+    align-items: center;            /* aligns on the cross axis (that runs perpendicular to the main axis) */
+    align-content: space-between;   /* aligns multiple flex lines on cross axis - must have wrap or wrap-reverse */
+}
+
+.single-item {
+    align-self: center;             /* cross-axis alignment for single item in flex container */
+}
+
+/* ########## ALIGN WITH MARGINS #################
+
+<ul>
+    <li class="set-to-left"><img src="source.png"></li>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+</ul>
+*/
+
+ul {
+    display: flex;              /* make the ul a flex container */
+    align-items: center;
+}
+li.set-to-left {
+    margin-right: auto;         /* move the extra space in the flexbox to the right of the logo */
+}
+
+/* ########### FLEXING ITEMS ############# */
+
+li {
+    flex: 1 0 200px;            /* 1 means it can expand, 0 means it cannot shrink narrower than 200px */
+    flex: 1 0 auto;             /* auto uses the specified width/height properties for the container */
+}
+
+/* item1 is twice the size of item2 */
+.item1 {
+    flex: 2;
+}
+.item2 {
+    flex: 1;
+}
+
+/* ############################################### GRID ############################################### */
+
