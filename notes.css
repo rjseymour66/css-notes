@@ -1,3 +1,24 @@
+/* ############################### Units ###########################################
+font size:	rem		adapt to browser settings
+
+width:		%, maxwidth()
+		ch (character)	don't go above 75 characters per line
+
+height:		%, rem, vh	use a min-height, or maybe don't set a height
+
+padding/margin	em, rem
+
+flow		rem, em		margin-top: 1rem/em
+
+media-queries	em		use em for cross-browser support
+
+Use pixels for border, shadow, etc...
+
+*/
+
+
+
+
 @charset "UTF-8";
 
 /* ##################################### SETUP ##################################### */
